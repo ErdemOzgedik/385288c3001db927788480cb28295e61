@@ -3,36 +3,53 @@ import "../styles/pages/Home/home.css";
 import ProductList from "../components/ProductList";
 import SearchField from "../components/SearchField";
 import client from "../api/shopifyApi";
+import LoadingHandle from "../components/LoadingHandle";
 
 function Home() {
   const [products, setProducts] = useState<ShopifyBuy.Product[]>([]);
   const [term, setTerm] = useState<string>("");
+  const [isError, setIsError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    try {
-      client.product.fetchAll().then((res) => {
+    setIsLoading(true);
+    client.product
+      .fetchAll()
+      .then((res) => {
         setProducts(res);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsError(true);
       });
-    } catch (error: any) {
-      console.log(error.message);
-    }
   }, []);
+
+  useEffect(() => {
+    setIsOpen(isError || isLoading);
+  }, [isError, isLoading]);
 
   return (
     <div className="home">
-      <SearchField term={term} setTerm={setTerm} />
-      <ProductList
-        products={
-          term.length > 1
-            ? products.filter((product) => {
-                if (product.title.toLowerCase().includes(term))
-                  console.log(product.title.toLowerCase());
+      {isOpen ? (
+        <LoadingHandle isError={isError} />
+      ) : (
+        <>
+          <SearchField term={term} setTerm={setTerm} />
+          <ProductList
+            products={
+              term.length > 1
+                ? products.filter((product) => {
+                    if (product.title.toLowerCase().includes(term))
+                      console.log(product.title.toLowerCase());
 
-                return product.title.toLowerCase().includes(term);
-              })
-            : products
-        }
-      />
+                    return product.title.toLowerCase().includes(term);
+                  })
+                : products
+            }
+          />
+        </>
+      )}
     </div>
   );
 }

@@ -21,6 +21,7 @@
     "typescript": "^4.6.2"
   },
   "scripts": {
+    "dev": "react-scripts start",
     "start": "node server.js",
     "build": "react-scripts build",
     "serve": "serve build",
