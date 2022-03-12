@@ -40,9 +40,6 @@ function Home() {
             products={
               term.length > 1
                 ? products.filter((product) => {
-                    if (product.title.toLowerCase().includes(term))
-                      console.log(product.title.toLowerCase());
-
                     return product.title.toLowerCase().includes(term);
                   })
                 : products

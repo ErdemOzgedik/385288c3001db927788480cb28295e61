@@ -1,4 +1,8 @@
-# **To Run On Local**
+# Shopify App
+
+> https://shopifyyyy.herokuapp.com
+
+## **To Run On Local**
 
 > You need env variables to initiate Shopify Client therefore create an env file and assign variables.
 
