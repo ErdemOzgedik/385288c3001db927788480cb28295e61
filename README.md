@@ -1,5 +1,7 @@
 # **To Run On Local**
 
+> You need env variables to initiate Shopify Client therefore create an env file and assign variables.
+
 ### `npm init`
 
 Installs required packages.
