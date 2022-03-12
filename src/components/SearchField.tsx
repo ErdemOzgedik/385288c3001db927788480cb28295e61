@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../styles/components/SearchField/searchField.css";
 
 interface Props {
@@ -6,9 +6,6 @@ interface Props {
   setTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 const SearchField = ({ term, setTerm }: Props) => {
-  useEffect(() => {
-    console.log("bos effect search field render edildi");
-  });
   return (
     <div className="search-field">
       <input
