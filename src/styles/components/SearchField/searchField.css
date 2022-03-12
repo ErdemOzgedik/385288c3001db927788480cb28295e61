@@ -19,11 +19,12 @@
 
 .search-field__input {
   border-radius: 1rem;
+  font-family: "Roboto", sans-serif;
   font-size: 2rem;
   line-height: normal;
   letter-spacing: normal;
   font-style: "Roboto", sans-serif;
-  color: #20798f;
+  color: #2e25a7;
   border: 1px solid #fff;
   width: 100%;
   padding: 0.4rem;

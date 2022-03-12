@@ -41,7 +41,7 @@
   box-shadow: 5px 5px 10px 2px #555353;
   border-radius: 50%;
   background-color: #fff;
-  color: #20798f;
+  color: #2e25a7;
   opacity: 0.8;
   width: 30px;
   height: 30px;
@@ -60,7 +60,7 @@
 }
 
 .pagination__list--item.active {
-  background-color: #20798f;
+  background-color: #2e25a7;
   color: #fff;
   opacity: 1;
 }

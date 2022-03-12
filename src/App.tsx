@@ -14,7 +14,4 @@ const App = () => {
   );
 };
 
-/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
-export default () => {
-  return <App />;
-};
+export default App;

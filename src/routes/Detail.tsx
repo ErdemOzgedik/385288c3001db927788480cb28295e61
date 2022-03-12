@@ -29,11 +29,11 @@ const Detail = () => {
         <div className="detail__product-content">
           <div className="content__title">{product?.title}</div>
           <div className="content__body">
-            <div className="content__body-item">
+            <div className="content__body-price">
               <span>Price</span>
-              {product?.variants[0].price}
+              {product?.variants[0].price}TL
             </div>
-            <div className="content__body-item">{product?.description}</div>
+            <div className="content__body-desc">{product?.description}</div>
           </div>
         </div>
       </div>
