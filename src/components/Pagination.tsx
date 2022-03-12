@@ -10,7 +10,7 @@ const Pagination = ({ count, current, handleClick }: Props) => {
   return (
     <div className="pagination">
       <div className="pagination__list">
-        {Array.from(Array(count), (e, i) => {
+        {Array.from(Array(count === 1 ? count + 1 : count), (e, i) => {
           return (
             <div
               className={

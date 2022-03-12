@@ -5,6 +5,8 @@ import SearchField from "../components/SearchField";
 import client from "../api/shopifyApi";
 import LoadingHandle from "../components/LoadingHandle";
 
+const PRODUCT_COUNT = 100;
+
 function Home() {
   const [products, setProducts] = useState<ShopifyBuy.Product[]>([]);
   const [term, setTerm] = useState<string>("");
@@ -15,7 +17,7 @@ function Home() {
   useEffect(() => {
     setIsLoading(true);
     client.product
-      .fetchAll()
+      .fetchAll(PRODUCT_COUNT)
       .then((res) => {
         setProducts(res);
         setIsLoading(false);
