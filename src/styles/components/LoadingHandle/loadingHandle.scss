@@ -15,9 +15,11 @@
 
   @include phone {
     height: 40%;
+    width: 70%;
   }
   @include tablet {
     height: 50%;
+    width: 70%;
   }
 }
 
@@ -36,6 +38,11 @@
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
+
+  @include phone {
+    border: 0.7rem solid $color-primary;
+    border-top: 0.7rem solid $color-secondary;
+  }
 }
 
 @-webkit-keyframes spin {

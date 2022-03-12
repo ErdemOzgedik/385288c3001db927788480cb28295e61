@@ -30,12 +30,14 @@
 @media (max-width: 539px) {
   .loading-handle {
     height: 40%;
+    width: 70%;
   }
 }
 
 @media (min-width: 540px) and (max-width: 1023px) {
   .loading-handle {
     height: 50%;
+    width: 70%;
   }
 }
 
@@ -55,6 +57,13 @@
   -webkit-animation: spin 2s linear infinite;
   /* Safari */
   animation: spin 2s linear infinite;
+}
+
+@media (max-width: 539px) {
+  .loading-handle__loader {
+    border: 0.7rem solid #fff;
+    border-top: 0.7rem solid #2e25a7;
+  }
 }
 
 @-webkit-keyframes spin {
