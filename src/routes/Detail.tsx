@@ -9,9 +9,11 @@ const Detail = () => {
   const [product, setProduct] = useState<ShopifyBuy.Product>();
 
   useEffect(() => {
-    client.product.fetch(id!).then((product) => {
-      setProduct(product);
-    });
+    try {
+      client.product.fetch(id!).then((product) => {
+        setProduct(product);
+      });
+    } catch (error) {}
   }, [id]);
 
   return (
@@ -32,10 +34,6 @@ const Detail = () => {
               {product?.variants[0].price}
             </div>
             <div className="content__body-item">{product?.description}</div>
-            <div className="content__body-item">
-              <span>Vendor</span>
-              {product?.vendor}
-            </div>
           </div>
         </div>
       </div>

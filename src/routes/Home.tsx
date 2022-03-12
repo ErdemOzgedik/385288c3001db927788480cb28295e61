@@ -1,28 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/pages/Home/home.css";
 import ProductList from "../components/ProductList";
 import SearchField from "../components/SearchField";
-import ProductContext from "../context/ProductContext";
 import client from "../api/shopifyApi";
 
 function Home() {
-  const { products, addProducts } = useContext(ProductContext);
+  const [products, setProducts] = useState<ShopifyBuy.Product[]>([]);
   const [term, setTerm] = useState<string>("");
 
   useEffect(() => {
-    console.log("bos effect appts");
-
-    const getProducts = async () => {
-      try {
-        client.product.fetchAll().then((res) => {
-          addProducts!(res);
-        });
-      } catch (error: any) {
-        console.log(error.message);
-      }
-    };
-
-    getProducts();
+    try {
+      client.product.fetchAll().then((res) => {
+        setProducts(res);
+      });
+    } catch (error: any) {
+      console.log(error.message);
+    }
   }, []);
 
   return (

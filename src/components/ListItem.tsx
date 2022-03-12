@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/components/ListItem/listItem.css";
 interface Props {
   product: ShopifyBuy.Product;
 }
 const ListItem = ({ product }: Props) => {
-  useEffect(() => {
-    console.log("bos effect ListItem render edildi");
-  });
-
   return (
     <Link
       to={`/detail/${product.id}`}

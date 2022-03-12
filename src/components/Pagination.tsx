@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../styles/components/Pagination/pagination.css";
 
 interface Props {
@@ -7,9 +7,6 @@ interface Props {
   handleClick(index: number): void;
 }
 const Pagination = ({ count, current, handleClick }: Props) => {
-  useEffect(() => {
-    console.log("bos effect pagination render edildi");
-  });
   return (
     <div className="pagination">
       <div className="pagination__list">

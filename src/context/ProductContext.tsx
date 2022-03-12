@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import Product, { IProductContext } from "../model/model";
+import IProductContext from "../model/model";
 
 const defaultState = {
   products: [],
