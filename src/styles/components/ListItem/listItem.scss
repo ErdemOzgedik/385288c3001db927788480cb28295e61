@@ -3,7 +3,7 @@
 
 .list-item {
   @include flex-container(row, center, center);
-  @include box-shadow(5px 5px 10px 2px rgb(85, 83, 83));
+  @include box-shadow(5px 5px 10px 2px $color-tertiary);
   @include rounded-corner(1rem);
   background-repeat: round;
   background-size: cover;
