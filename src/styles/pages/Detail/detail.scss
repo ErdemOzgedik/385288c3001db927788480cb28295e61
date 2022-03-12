@@ -6,7 +6,7 @@
 }
 
 .detail__product {
-  @include box-shadow(5px 5px 10px 2px rgb(85, 83, 83));
+  @include box-shadow(5px 5px 10px 2px $color-tertiary);
   @include flex-container(row, center, center);
   @include rounded-corner(1rem);
   opacity: $opacity;

@@ -1,0 +1,22 @@
+@import "../../utilities/mixins/mixins.scss";
+@import "../../utilities/variables/variables.scss";
+
+.not-found {
+  @include flex-container(column, center, center);
+  @include box-shadow(5px 5px 10px 2px $color-tertiary);
+  @include rounded-corner(1rem);
+  opacity: $opacity;
+  background-color: $color-primary;
+  color: $color-secondary;
+  width: 80%;
+  height: 75%;
+  font-family: $font-primary;
+}
+
+.not-found__icon {
+  @include font-size(10);
+}
+
+.not-found__message {
+  padding: 0.4rem;
+}
