@@ -1,0 +1,27 @@
+@import "../../utilities/mixins/mixins.scss";
+@import "../../utilities/variables/variables.scss";
+
+.product-list {
+  @include flex-container(row, space-between, center);
+  position: relative;
+  width: 80%;
+  height: 75%;
+  align-self: center;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.product-list::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.product-list::-webkit-scrollbar-track {
+  @include rounded-corner(1rem);
+  @include box-shadow(inset 0 0 6px $color-secondary);
+}
+
+.product-list::-webkit-scrollbar-thumb {
+  @include rounded-corner(1rem);
+  @include box-shadow(inset 0 0 6px $color-tertiary);
+}

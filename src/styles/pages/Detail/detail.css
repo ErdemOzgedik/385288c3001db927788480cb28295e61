@@ -1,0 +1,112 @@
+.detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  text-align: center;
+  background: linear-gradient(135deg, #b3e5fc 10%, #b3e5fc 50%, #f06292 50%, #f06292 100%);
+  color: #20798f;
+}
+
+.detail__product {
+  -webkit-box-shadow: 5px 5px 10px 2px #555353;
+  box-shadow: 5px 5px 10px 2px #555353;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1rem;
+  opacity: 0.8;
+  background-color: #fff;
+  position: relative;
+  width: 80%;
+  height: 80%;
+  overflow: hidden;
+}
+
+@media (max-width: 539px) {
+  .detail__product {
+    height: 60%;
+  }
+}
+
+@media (min-width: 540px) and (max-width: 1023px) {
+  .detail__product {
+    height: 70%;
+  }
+}
+
+.detail__product-close {
+  top: 2%;
+  right: 2%;
+  position: absolute;
+  font-size: 3rem;
+}
+
+.link {
+  color: #20798f;
+  text-decoration: none;
+}
+
+.link:focus, .link:hover, .link:visited, .link:link, .link:active {
+  text-decoration: none;
+}
+
+.detail__product-image {
+  border-radius: 1rem;
+  border: 1px solid #20798f;
+  width: 60%;
+  height: 100%;
+  background-repeat: round;
+  background-size: cover;
+}
+
+.detail__product-content {
+  width: 40%;
+  height: 60%;
+  text-align: start;
+  padding-left: 1%;
+}
+
+.content__title {
+  font-size: 2rem;
+  line-height: normal;
+  letter-spacing: normal;
+  margin-bottom: 5%;
+  font-weight: 700;
+}
+
+.content__body {
+  font-size: 1rem;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.content__body-item {
+  margin-bottom: 2%;
+}
+
+.content__body-item > span {
+  font-weight: 400;
+  margin-right: 2%;
+}
+/*# sourceMappingURL=detail.css.map */

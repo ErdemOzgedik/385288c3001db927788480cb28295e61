@@ -1,0 +1,23 @@
+@import "../../utilities/mixins/mixins.scss";
+@import "../../utilities/variables/variables.scss";
+
+.search-field {
+  @include flex-container(column, center, center);
+  opacity: $opacity;
+  width: 50%;
+  height: 15%;
+}
+
+.search-field__input {
+  @include rounded-corner(1rem);
+  @include font-size(2);
+  font-style: $font-primary;
+  color: $color-secondary;
+  border: 1px solid $color-primary;
+  width: 100%;
+  padding: 0.4rem;
+
+  &:focus {
+    outline: none;
+  }
+}
