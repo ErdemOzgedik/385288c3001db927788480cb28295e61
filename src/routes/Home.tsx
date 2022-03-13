@@ -5,7 +5,7 @@ import SearchField from "../components/SearchField";
 import client from "../api/shopifyApi";
 import LoadingHandle from "../components/LoadingHandle";
 
-const PRODUCT_COUNT = 100;
+const PRODUCT_COUNT = 50;
 
 function Home() {
   const [products, setProducts] = useState<ShopifyBuy.Product[]>([]);
