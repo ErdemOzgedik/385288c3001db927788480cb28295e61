@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { BsCurrencyDollar } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import client from "../api/shopifyApi";
 import LoadingHandle from "../components/LoadingHandle";
@@ -47,7 +48,7 @@ const Detail = () => {
             <div className="content__body">
               <div className="content__body-price">
                 <span>Price</span>
-                {product?.variants[0].price}TL
+                {product?.variants[0].price}<BsCurrencyDollar />
               </div>
               <div className="content__body-desc">{product?.description}</div>
             </div>

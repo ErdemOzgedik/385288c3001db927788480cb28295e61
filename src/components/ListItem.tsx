@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BsCurrencyDollar } from "react-icons/bs";
 import "../styles/components/ListItem/listItem.css";
+
 interface Props {
   product: ShopifyBuy.Product;
 }
+
 const ListItem = ({ product }: Props) => {
   return (
     <Link
@@ -14,7 +17,7 @@ const ListItem = ({ product }: Props) => {
       <div className="list-item__detail">
         <div className="list-item__detail--title">{product.title}</div>
         <div className="list-item__detail--price">
-          {product.variants[0].price}
+          {product.variants[0].price} <BsCurrencyDollar />
         </div>
       </div>
     </Link>

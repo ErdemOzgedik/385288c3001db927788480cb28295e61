@@ -42,7 +42,9 @@ function Home() {
             products={
               term.length > 1
                 ? products.filter((product) => {
-                    return product.title.toLowerCase().includes(term);
+                    return product.title
+                      .toLowerCase()
+                      .includes(term.toLowerCase());
                   })
                 : products
             }

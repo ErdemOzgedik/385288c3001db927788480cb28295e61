@@ -65,6 +65,7 @@
   }
 }
 .content__body-price {
+  @include flex-container(row, start, center);
   margin-bottom: 2%;
   & > span {
     font-weight: 400;

@@ -42,3 +42,14 @@
   height: 15%;
   align-self: flex-end;
 }
+
+.list-item__detail--title {
+  @include font-size(1.2);
+  font-family: $font-primary;
+}
+
+.list-item__detail--price {
+  @include flex-container(row, center, center);
+  @include font-size(1);
+  font-family: $font-primary;
+}
