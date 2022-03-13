@@ -6,9 +6,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -36,7 +36,7 @@
 
 .product-list::-webkit-scrollbar-thumb {
   border-radius: 1rem;
-  -webkit-box-shadow: inset 0 0 6px #222724;
-  box-shadow: inset 0 0 6px #222724;
+  -webkit-box-shadow: inset 0 0 6px #555353;
+  box-shadow: inset 0 0 6px #555353;
 }
 /*# sourceMappingURL=productList.css.map */

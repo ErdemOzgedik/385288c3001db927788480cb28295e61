@@ -2,7 +2,7 @@
 @import "../../utilities/variables/variables.scss";
 
 .product-list {
-  @include flex-container(row, space-between, center);
+  @include flex-container(row, start, center);
   position: relative;
   width: 80%;
   height: 75%;
