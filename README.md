@@ -2,17 +2,27 @@
 
 > https://shopifyyyy.herokuapp.com
 
-## **To Run On Local**
+**To Run On Local**
 
-> You need env variables to initiate Shopify Client therefore create an env file and assign variables.
-
-### `npm init`
+## `npm install`
 
 Installs required packages.
 
-### `npm start`
+> Way 1
+
+# `npm run dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Way 2
+
+# `npm run build`
+
+Creates a build folder.
+
+## `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
