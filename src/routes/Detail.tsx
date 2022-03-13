@@ -4,26 +4,31 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import client from "../api/shopifyApi";
 import LoadingHandle from "../components/LoadingHandle";
+import { Product, ProductResponse } from "../model/model";
 import "../styles/pages/Detail/detail.css";
 
 const Detail = () => {
   const { id } = useParams<string>();
-  const [product, setProduct] = useState<ShopifyBuy.Product>();
+  const [product, setProduct] = useState<Product>();
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setIsLoading(true);
-    client.product
-      .fetch(id!)
-      .then((product) => {
-        setProduct(product);
+
+    const getProduct = async () => {
+      try {
+        const response = await client.get<ProductResponse>(`/product/${id}`);
+
+        setProduct(response.data.product);
         setIsLoading(false);
-      })
-      .catch(() => {
+      } catch (error) {
         setIsError(true);
-      });
+      }
+    };
+
+    getProduct();
   }, [id]);
 
   useEffect(() => {
@@ -41,14 +46,15 @@ const Detail = () => {
           </Link>
           <div
             className="detail__product-image"
-            style={{ backgroundImage: `url(${product?.images[0].src})` }}
+            style={{ backgroundImage: `url(${product?.image})` }}
           ></div>
           <div className="detail__product-content">
             <div className="content__title">{product?.title}</div>
             <div className="content__body">
               <div className="content__body-price">
                 <span>Price</span>
-                {product?.variants[0].price}<BsCurrencyDollar />
+                {product?.price}
+                <BsCurrencyDollar />
               </div>
               <div className="content__body-desc">{product?.description}</div>
             </div>

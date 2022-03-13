@@ -1,8 +1,7 @@
-import Client from "shopify-buy";
+import axios from "axios";
 
-const client = Client.buildClient({
-  domain: process.env.REACT_APP_DOMAIN!,
-  storefrontAccessToken: process.env.REACT_APP_TOKEN!,
+const client = axios.create({
+  baseURL: "https://shopfy-express.herokuapp.com",
 });
 
 export default client;

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "../styles/pages/Home/home.css";
+import client from "../api/shopifyApi";
 import ProductList from "../components/ProductList";
 import SearchField from "../components/SearchField";
-import client from "../api/shopifyApi";
 import LoadingHandle from "../components/LoadingHandle";
+import { Product, ProductsResponse } from "../model/model";
+import "../styles/pages/Home/home.css";
 
 const PRODUCT_COUNT = 50;
 
 function Home() {
-  const [products, setProducts] = useState<ShopifyBuy.Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [term, setTerm] = useState<string>("");
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -16,15 +17,21 @@ function Home() {
 
   useEffect(() => {
     setIsLoading(true);
-    client.product
-      .fetchAll(PRODUCT_COUNT)
-      .then((res) => {
-        setProducts(res);
+
+    const getProducts = async () => {
+      try {
+        const response = await client.get<ProductsResponse>(
+          `/products/${PRODUCT_COUNT}`
+        );
+
+        setProducts(response.data.products);
         setIsLoading(false);
-      })
-      .catch(() => {
+      } catch (error) {
         setIsError(true);
-      });
+      }
+    };
+
+    getProducts();
   }, []);
 
   useEffect(() => {
