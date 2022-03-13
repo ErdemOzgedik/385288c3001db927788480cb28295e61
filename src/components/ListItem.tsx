@@ -6,7 +6,6 @@ import "../styles/components/ListItem/listItem.css";
 interface Props {
   product: ShopifyBuy.Product;
 }
-
 const ListItem = ({ product }: Props) => {
   return (
     <Link

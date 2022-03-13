@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "../styles/pages/Home/home.css";
+import client from "../api/shopifyApi";
 import ProductList from "../components/ProductList";
 import SearchField from "../components/SearchField";
-import client from "../api/shopifyApi";
 import LoadingHandle from "../components/LoadingHandle";
+import "../styles/pages/Home/home.css";
 
 const PRODUCT_COUNT = 50;
 

@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ListItem from "./ListItem";
 import Pagination from "./Pagination";
-import "../styles/components/ProductList/productList.css";
 import NotFound from "./NotFound";
+import "../styles/components/ProductList/productList.css";
 
 const SHOW_COUNT = 9;
 
 interface Props {
   products: ShopifyBuy.Product[];
 }
-
 const ProductList = ({ products }: Props) => {
   const [current, setCurrent] = useState<number>(0);
   const count: number = Math.round(products.length / SHOW_COUNT);
+
+  const notFoundComponent = useMemo(() => {
+    return <NotFound />;
+  }, []);
 
   const handleClick = (index: number): void => {
     setCurrent(index);
@@ -25,7 +28,7 @@ const ProductList = ({ products }: Props) => {
   return (
     <>
       {products.length === 0 ? (
-        <NotFound />
+        notFoundComponent
       ) : (
         <div className="product-list">
           {products
