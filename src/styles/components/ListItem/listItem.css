@@ -33,6 +33,11 @@
           transform: scale(1.015);
 }
 
+.list-item:hover > .list-item__detail {
+  color: #fff;
+  background-color: #2e25a7;
+}
+
 @media (max-width: 539px) {
   .list-item {
     width: 100%;

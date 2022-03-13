@@ -16,6 +16,11 @@
 
   &:hover {
     transform: scale(1.015);
+
+    & > .list-item__detail {
+      color: $color-primary;
+      background-color: $color-secondary;
+    }
   }
 
   @include phone {
