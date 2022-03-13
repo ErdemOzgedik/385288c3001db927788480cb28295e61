@@ -3,11 +3,12 @@ import ListItem from "./ListItem";
 import Pagination from "./Pagination";
 import NotFound from "./NotFound";
 import "../styles/components/ProductList/productList.css";
+import { Product } from "../model/model";
 
 const SHOW_COUNT = 9;
 
 interface Props {
-  products: ShopifyBuy.Product[];
+  products: Product[];
 }
 const ProductList = ({ products }: Props) => {
   const [current, setCurrent] = useState<number>(0);
