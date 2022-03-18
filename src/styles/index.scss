@@ -1,5 +1,19 @@
+@import "../styles/utilities/mixins/mixins.scss";
+@import "../styles/utilities/variables/variables.scss";
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+#root {
+  @include app-container($color-primary);
+  background: linear-gradient(
+    135deg,
+    rgba(179, 229, 252, 1) 10%,
+    rgba(179, 229, 252, 1) 50%,
+    rgba(240, 98, 146, 1) 50%,
+    rgba(240, 98, 146, 1) 100%
+  );
 }

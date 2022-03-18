@@ -4,4 +4,24 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+#root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #b3e5fc 10%, #b3e5fc 50%, #f06292 50%, #f06292 100%);
+}
 /*# sourceMappingURL=index.css.map */

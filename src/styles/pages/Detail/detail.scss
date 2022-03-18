@@ -3,6 +3,7 @@
 
 .detail {
   @include app-container($color-secondary);
+  width: 100%;
 }
 
 .detail__product {
