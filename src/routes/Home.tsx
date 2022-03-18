@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import client from "../api/shopifyApi";
-import ProductList from "../components/ProductList";
 import SearchField from "../components/SearchField";
 import LoadingHandle from "../components/LoadingHandle";
 import { Product, ProductsResponse } from "../model/model";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "../components/ErrorBoundary";
 import "../styles/pages/Home/home.css";
 
+const ProductList = lazy(() => import("../components/ProductList"));
 const PRODUCT_COUNT = 50;
 
 function Home() {
@@ -38,6 +40,14 @@ function Home() {
     setIsOpen(isError || isLoading);
   }, [isError, isLoading]);
 
+  const getProductList = () => {
+    return term.length > 1
+      ? products.filter((product) => {
+          return product.title.toLowerCase().includes(term.toLowerCase());
+        })
+      : products;
+  };
+
   return (
     <div className="home">
       {isOpen ? (
@@ -45,17 +55,11 @@ function Home() {
       ) : (
         <>
           <SearchField term={term} setTerm={setTerm} />
-          <ProductList
-            products={
-              term.length > 1
-                ? products.filter((product) => {
-                    return product.title
-                      .toLowerCase()
-                      .includes(term.toLowerCase());
-                  })
-                : products
-            }
-          />
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <Suspense fallback={<LoadingHandle isError={isError} />}>
+              <ProductList products={getProductList()} />
+            </Suspense>
+          </ErrorBoundary>
         </>
       )}
     </div>
