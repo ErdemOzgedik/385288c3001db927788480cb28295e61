@@ -1,15 +1,19 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Detail from "./routes/Detail";
-import Home from "./routes/Home";
+import LoadingHandle from "./components/LoadingHandle";
+
+const Home = lazy(() => import("./routes/Home"));
+const Detail = lazy(() => import("./routes/Detail"));
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/detail/:id" element={<Detail />} />
-      </Routes>
+      <Suspense fallback={<LoadingHandle isError={true} />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/detail/:id" element={<Detail />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 };
