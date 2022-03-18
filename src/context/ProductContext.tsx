@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import IProductContext from "../model/model";
+import IProductContext, { Product } from "../model/model";
 
 const defaultState = {
   products: [],
@@ -8,11 +8,9 @@ const defaultState = {
 const ProductContext = React.createContext<IProductContext>(defaultState);
 
 export const ProductProvider: FC = ({ children }) => {
-  const [products, setProducts] = useState<ShopifyBuy.Product[]>(
-    defaultState.products
-  );
+  const [products, setProducts] = useState<Product[]>(defaultState.products);
 
-  const addProducts = (products: ShopifyBuy.Product[]) => {
+  const addProducts = (products: Product[]) => {
     setProducts([...products]);
   };
 
