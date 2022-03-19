@@ -2,11 +2,9 @@
 @import "../../utilities/variables/variables.scss";
 
 .list-item {
-  @include flex-container(row, center, center);
+  @include flex-container(column, center, center);
   @include box-shadow(5px 5px 10px 2px $color-tertiary);
   @include rounded-corner(1rem);
-  background-repeat: round;
-  background-size: cover;
   width: 30%;
   height: 65%;
   margin: 1%;
@@ -37,6 +35,22 @@
 
 .link {
   @include link($color-secondary);
+}
+
+.list-item__container {
+  background-color: $color-tertiary;
+  width: 100%;
+  height: 85%;
+  position: relative;
+  overflow: hidden;
+}
+
+.list-item__image {
+  background-repeat: round;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .list-item__detail {

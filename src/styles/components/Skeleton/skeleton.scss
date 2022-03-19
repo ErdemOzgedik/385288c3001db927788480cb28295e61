@@ -1,0 +1,41 @@
+@import "../../utilities/mixins/mixins.scss";
+@import "../../utilities/variables/variables.scss";
+
+.skeleton {
+  background-color: $color-tertiary;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.skeleton__swipe {
+  background: linear-gradient(
+    90deg,
+    $color-tertiary 0%,
+    $color-primary 50%,
+    $color-tertiary 100%
+  );
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: skeletonAnim 1s ease-in-out 0s infinite alternate none;
+}
+
+@keyframes skeletonAnim {
+  0% {
+    left: 100%;
+  }
+  25% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  75% {
+    left: -100%;
+  }
+  0% {
+    left: 100%;
+  }
+}
