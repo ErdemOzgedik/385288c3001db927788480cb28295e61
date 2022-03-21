@@ -1,4 +1,5 @@
 import React, { FormEvent, useEffect, useRef } from "react";
+import { isDesktop } from "react-device-detect";
 import { IoMdSearch } from "react-icons/io";
 import "../styles/components/SearchField/searchField.css";
 
@@ -11,7 +12,7 @@ const SearchField = ({ term, setTerm, handleSubmit }: Props) => {
   const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    searchRef.current?.focus();
+    isDesktop && searchRef.current?.focus();
   }, []);
 
   return (
