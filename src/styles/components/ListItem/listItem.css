@@ -23,6 +23,8 @@
   transition: -webkit-transform 1s ease;
   transition: transform 1s ease;
   transition: transform 1s ease, -webkit-transform 1s ease;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
   overflow: hidden;
 }
 
