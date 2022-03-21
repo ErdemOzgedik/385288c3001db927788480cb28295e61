@@ -1,4 +1,11 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, {
+  FormEvent,
+  lazy,
+  Suspense,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import client from "../api/shopifyApi";
 import SearchField from "../components/SearchField";
 import LoadingHandle from "../components/LoadingHandle";
@@ -17,36 +24,44 @@ function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  useEffect(() => {
+  const productListComponent = useMemo(() => {
+    return <ProductList products={products} />;
+  }, [products]);
+
+  const getProducts = async (url: string) => {
     setIsLoading(true);
 
-    const getProducts = async () => {
-      try {
-        const response = await client.get<ProductsResponse>(
-          `/products/${PRODUCT_COUNT}`
-        );
+    try {
+      const response = await client.get<ProductsResponse>(url);
 
-        setProducts(response.data.products);
-        setIsLoading(false);
-      } catch (error) {
-        setIsError(true);
-      }
-    };
+      setProducts(response.data.products);
+      setIsLoading(false);
+    } catch (error) {
+      setIsError(true);
+    }
+  };
 
-    getProducts();
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (term.length === 0 && products.length !== PRODUCT_COUNT) {
+      getProducts(`/products/${PRODUCT_COUNT}`);
+      return;
+    }
+
+    if (term.length < 3) return;
+
+    getProducts(`/search/${term}`);
+    return;
+  };
+
+  useEffect(() => {
+    getProducts(`/products/${PRODUCT_COUNT}`);
   }, []);
 
   useEffect(() => {
     setIsOpen(isError || isLoading);
   }, [isError, isLoading]);
-
-  const getProductList = () => {
-    return term.length > 1
-      ? products.filter((product) => {
-          return product.title.toLowerCase().includes(term.toLowerCase());
-        })
-      : products;
-  };
 
   return (
     <div className="home">
@@ -54,10 +69,14 @@ function Home() {
         <LoadingHandle isError={isError} />
       ) : (
         <>
-          <SearchField term={term} setTerm={setTerm} />
+          <SearchField
+            term={term}
+            setTerm={setTerm}
+            handleSubmit={handleSubmit}
+          />
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Suspense fallback={<LoadingHandle isError={isError} />}>
-              <ProductList products={getProductList()} />
+              {productListComponent}
             </Suspense>
           </ErrorBoundary>
         </>
