@@ -2,8 +2,9 @@
 @import "../../utilities/variables/variables.scss";
 
 .search-field {
-  @include flex-container(column, center, center);
+  @include flex-container(row, center, center);
   opacity: $opacity;
+  position: relative;
   width: 50%;
   height: 15%;
 }
@@ -11,13 +12,38 @@
 .search-field__input {
   @include rounded-corner(1rem);
   @include font-size(2);
-  font-family: $font-primary;
-  color: $color-secondary;
+  background-color: $color-secondary;
+  color: $color-primary;
   border: 1px solid $color-primary;
   width: 100%;
+  height: 60px;
   padding: 0.4rem;
 
   &:focus {
     outline: none;
   }
+}
+
+.search-field__input::placeholder {
+  color: $color-primary;
+}
+
+.search-field__icon {
+  @include flex-container(row, center, center);
+  @include font-size(3);
+  color: $color-primary;
+  opacity: $opacity;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  cursor: text;
+}
+.search-field__icon.active {
+  opacity: 1;
+  cursor: pointer;
 }

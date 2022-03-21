@@ -1,11 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { FormEvent, useEffect, useRef } from "react";
+import { IoMdSearch } from "react-icons/io";
 import "../styles/components/SearchField/searchField.css";
 
 interface Props {
   term: string;
   setTerm: React.Dispatch<React.SetStateAction<string>>;
+  handleSubmit(e: FormEvent<HTMLFormElement>): void;
 }
-const SearchField = ({ term, setTerm }: Props) => {
+const SearchField = ({ term, setTerm, handleSubmit }: Props) => {
   const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -13,7 +15,7 @@ const SearchField = ({ term, setTerm }: Props) => {
   }, []);
 
   return (
-    <div className="search-field">
+    <form className="search-field" onSubmit={handleSubmit}>
       <input
         className="search-field__input"
         ref={searchRef}
@@ -21,7 +23,15 @@ const SearchField = ({ term, setTerm }: Props) => {
         onChange={(e) => setTerm(e.target.value)}
         placeholder="Search "
       />
-    </div>
+      <button
+        type="submit"
+        className={
+          term.length > 2 ? `search-field__icon active` : `search-field__icon`
+        }
+      >
+        <IoMdSearch />
+      </button>
+    </form>
   );
 };
 
