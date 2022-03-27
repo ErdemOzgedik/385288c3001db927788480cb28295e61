@@ -1,6 +1,6 @@
 import React from "react";
 import { ImSad } from "react-icons/im";
-import "../styles/components/NotFound/notFound.css";
+import "../styles/components/NotFound/notFound.scss";
 
 const NotFound = () => {
   return (

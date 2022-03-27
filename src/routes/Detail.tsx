@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import client from "../api/shopifyApi";
 import LoadingHandle from "../components/LoadingHandle";
 import { Product, ProductResponse } from "../model/model";
-import "../styles/pages/Detail/detail.css";
+import "../styles/pages/Detail/detail.scss";
 
 const Detail = () => {
   const { id } = useParams<string>();

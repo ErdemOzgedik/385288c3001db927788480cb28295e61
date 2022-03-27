@@ -1,7 +1,7 @@
 import React, { FormEvent, useEffect, useRef } from "react";
 import { isDesktop } from "react-device-detect";
 import { IoMdSearch } from "react-icons/io";
-import "../styles/components/SearchField/searchField.css";
+import "../styles/components/SearchField/searchField.scss";
 
 interface Props {
   term: string;

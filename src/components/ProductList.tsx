@@ -2,8 +2,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import ListItem from "./ListItem";
 import Pagination from "./Pagination";
 import NotFound from "./NotFound";
-import "../styles/components/ProductList/productList.css";
 import { Product } from "../model/model";
+import "../styles/components/ProductList/productList.scss";
 
 const SHOW_COUNT = 9;
 

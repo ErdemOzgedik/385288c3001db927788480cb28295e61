@@ -12,7 +12,7 @@ import LoadingHandle from "../components/LoadingHandle";
 import { Product, ProductsResponse } from "../model/model";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../components/ErrorBoundary";
-import "../styles/pages/Home/home.css";
+import "../styles/pages/Home/home.scss";
 
 const ProductList = lazy(() => import("../components/ProductList"));
 const PRODUCT_COUNT = 50;

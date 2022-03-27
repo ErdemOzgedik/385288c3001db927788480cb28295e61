@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { Product } from "../model/model";
-import "../styles/components/ListItem/listItem.css";
 import Skeleton from "./Skeleton";
+import "../styles/components/ListItem/listItem.scss";
 
 interface Props {
   product: Product;

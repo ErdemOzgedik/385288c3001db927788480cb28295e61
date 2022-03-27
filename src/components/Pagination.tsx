@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/components/Pagination/pagination.css";
+import "../styles/components/Pagination/pagination.scss";
 
 interface Props {
   count: number;

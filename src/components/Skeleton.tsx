@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/components/Skeleton/skeleton.css";
+import "../styles/components/Skeleton/skeleton.scss";
 
 const Skeleton = () => {
   return <div className="skeleton">

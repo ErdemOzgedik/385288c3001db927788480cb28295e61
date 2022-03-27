@@ -1,6 +1,6 @@
 import React from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import "../styles/components/LoadingHandle/loadingHandle.css";
+import "../styles/components/LoadingHandle/loadingHandle.scss";
 
 interface Props {
   isError: boolean;
